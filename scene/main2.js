@@ -43,7 +43,7 @@ function init() {
 	buildShape();
 
 	var directionalLight = new THREE.SpotLight(0xeeeeee, 1.5);
-		directionalLight.position.set(3000, 3500,-2500);
+		directionalLight.position.set(4000, 3500,2500);
 		//directionalLight.target.position.set( 0, 0, 0 );
 		//directionalLight.shadowCameraVisible = true;
 		directionalLight.castShadow = true;
@@ -67,7 +67,7 @@ function buildShape(){
 
 var SKYmaterial  = new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture('images/knui.jpg'),color: 0xFFFFFF, side: THREE.DoubleSide  } );
 
-var SKYradius = 10000; //dimensiones del cielo
+var SKYradius = 50000; //dimensiones del cielo
 var SKYwidthSegments = 32;
 var SKYheigthSegments = 32;
 var SKYangleStart = 0;
@@ -104,7 +104,7 @@ var cylinder = new THREE.Mesh( CYLINDERgeometry, material );
 	cylinder.position.set(0,200,0);	//position del objeto(x,y,z)
 	cylinder.rotation.set(0,0,0);	//rotacion del objeto(x,y,z)
 	cylinder.scale.set(1,1,1);		//escala del objeto(x,y,z)
-grupoTodo.add( cylinder );
+scene.add( cylinder );
 
 //-----------------------------------------------
 
@@ -129,7 +129,7 @@ var cylinder = new THREE.Mesh( CYLINDERgeometry, CYLINDERmaterial );
 	cylinder.position.set(400,50,400);	//position del objeto(x,y,z)
 	cylinder.rotation.set(0,0,0);	//rotacion del objeto(x,y,z)
 	cylinder.scale.set(1,1,1);		//escala del objeto(x,y,z)
-grupoTodo.add( cylinder );
+scene.add( cylinder );
 
 //-----------------------------------------------
 
@@ -153,7 +153,7 @@ var cylinder = new THREE.Mesh( CYLINDERgeometry, CYLINDERmaterial );
 	cylinder.position.set(400,5,400);	//position del objeto(x,y,z)
 	cylinder.rotation.set(0,0,0);	//rotacion del objeto(x,y,z)
 	cylinder.scale.set(1,1,1);		//escala del objeto(x,y,z)
-grupoTodo.add( cylinder );
+scene.add( cylinder );
 
 //-----------------------------------------------
 
@@ -174,7 +174,7 @@ var sphere = new THREE.Mesh( SPHEREgeometry, SPHEREmaterial );
 	sphere.position.set(350,70,-350);	//position del objeto(x,y,z)
 	sphere.rotation.set(0,0,0);	//rotacion del objeto(x,y,z)
 	sphere.scale.set(1,1,1);	//escala del objeto(x,y,z)
-grupoTodo.add( sphere );	
+scene.add( sphere );	
 
 //-----------------------------------------------
 
@@ -198,7 +198,7 @@ var cylinder = new THREE.Mesh( CYLINDERgeometry, CYLINDERmaterial );
 	cylinder.position.set(350,200,-350);	//position del objeto(x,y,z)
 	cylinder.rotation.set(0,0,0);	//rotacion del objeto(x,y,z)
 	cylinder.scale.set(1,1,1);		//escala del objeto(x,y,z)
-grupoTodo.add( cylinder );
+scene.add( cylinder );
 
 //-----------------------------------------------
 
@@ -219,7 +219,7 @@ var donut = new THREE.Mesh( DONUTgeometry, DONUTmaterial );
 	donut.position.set(350,250,-350);	//position del objeto(x,y,z)
 	donut.rotation.set(Math.PI/2,0,0);	//rotacion del objeto(x,y,z)
 	donut.scale.set(1,1,1);		//escala del objeto(x,y,z)
-grupoTodo.add( donut );
+scene.add( donut );
 
 //-------------------------------------------------	
 
@@ -241,7 +241,7 @@ var donut = new THREE.Mesh( DONUTgeometry, DONUTmaterial );
 	donut.position.set(0,400,0);	//position del objeto(x,y,z)
 	donut.rotation.set(Math.PI/2,0,0);	//rotacion del objeto(x,y,z)
 	donut.scale.set(1,1,1);		//escala del objeto(x,y,z)
-grupoTodo.add( donut );
+scene.add( donut );
 
 //-------------------------------------------------	
 
@@ -275,7 +275,7 @@ var cube = new THREE.Mesh( cubegeometry, CUBEmaterial );
     cube.position.set(movex,380,movey); //position del objeto(x,y,z)
     cube.rotation.set(Math.PI/4,Math.PI/move,0); //rotacion del objeto(x,y,z)
     cube.scale.set(1,1,1); //escala del objeto(x,y,z)
-grupoTodo.add( cube );
+scene.add( cube );
 }
 }
 
@@ -359,7 +359,7 @@ grupoPollo.add( cylinder );
 grupoPollo.position.set(50,50,-400);	//position del objeto(x,y,z)
 grupoPollo.rotation.set(Math.PI/4,Math.PI/4,0);	//rotacion del objeto(x,y,z)
 
-grupoTodo.add(grupoPollo)
+scene.add(grupoPollo)
 
 //---------------POLLO2--------------------------
 
@@ -437,7 +437,7 @@ grupoPollo2.add( cylinder );
 grupoPollo2.position.set(-20,450,-560);	//position del objeto(x,y,z)
 grupoPollo2.rotation.set(Math.PI/2,Math.PI/1,0);	//rotacion del objeto(x,y,z)
 
-grupoTodo.add(grupoPollo2)
+scene.add(grupoPollo2)
 
 
 
@@ -519,7 +519,7 @@ grupoPollo3.add( cylinder );
 grupoPollo3.position.set(140,830,-300);	//position del objeto(x,y,z)
 grupoPollo3.rotation.set(Math.PI/2,Math.PI/3,Math.PI/3);	//rotacion del objeto(x,y,z)
 
-grupoTodo.add(grupoPollo3)
+scene.add(grupoPollo3)
 
 
 
@@ -541,16 +541,10 @@ var plane = new THREE.Mesh( PLANEgeometry, material3 );
 	plane.position.set(0,0,0);	//position del objeto(x,y,z)
 	plane.rotation.set(Math.PI/2,0,0);	//rotacion del objeto(x,y,z)
 	plane.scale.set(1,1,1);		//escala del objeto(x,y,z)
-grupoTodo.add( plane );
+scene.add( plane );
 
 //-----------------------------------------------
 
-
-grupoTodo.position.set(0,0,0);	//position del objeto(x,y,z)
-grupoTodo.rotation.set(0,Math.PI/2,0);	//rotacion del objeto(x,y,z)
-
-
-scene.add(grupoTodo)
 
 
 }
