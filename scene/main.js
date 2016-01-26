@@ -108,10 +108,34 @@ grupoTodo.add( cylinder );
 
 //-----------------------------------------------
 
+//-------------FONDO----------------------------
+
+
+var TexturePapas = THREE.ImageUtils.loadTexture( "images/papas.png" );
+var material = new THREE.MeshPhongMaterial( { map: TexturePapas,color: 0x888888, emissive: 0x888888, specular: 0x111111, shininess: 100, metal: true, transparent: true, opacity: 1, side: THREE.DoubleSide } );
+
+var CIRCLEmaterial = new THREE.MeshPhongMaterial( {color: 0x0033ff, emissive: 0x000033, specular: 0x111111, shininess: 100, metal: true, side: THREE.DoubleSide} );
+
+var circleradius = 170; //radio del circulo
+var circlesegments = 32;	//numero de segmentos que forman el circulo
+var circleStartAngle = 0;	//angulo desde el que comienza a dibujarse el circulo
+var circleAngle = 6.3; // angulo del circulo(360, solo 180..)
+
+var circleGeometry = new THREE.CircleGeometry( circleradius, circlesegments, circleStartAngle, circleAngle );
+var circle = new THREE.Mesh( circleGeometry, material );
+	circle.castShadow = true; //emitir sombras
+	circle.receiveShadow = false;	//recibir sombras
+	circle.position.set(0,290,0);	//posicion del objeto(x,y,z)
+	circle.rotation.set(Math.PI/2,0,0);	//rotacion del objeto(x,y,z)
+	circle.scale.set(1,1,1);	//escala del objeto(x,y,z)
+scene.add( circle );
+
+//-----------------------------------------------
+
 //--------------sombrero---------------------------
 
 
-var CYLINDERmaterial = new THREE.MeshPhongMaterial( {color: 0x222222, emissive: 0x000033, specular: 0x111111, shininess: 100, metal: true, side: THREE.DoubleSide} );
+var CYLINDERmaterial = new THREE.MeshPhongMaterial( {color: 0x111111, emissive: 0x111111, specular: 0x111111, shininess: 100, metal: true, side: THREE.DoubleSide} );
 
 var CYLINDERradiusTop = 160; //radio de la parte superios del cilindro
 var CYLINDERradiusBottom = 170;	//radio de la parte inferior del cilindro
@@ -135,7 +159,7 @@ grupoTodo.add( cylinder );
 
 //--------------sombrero---------------------------
 
-var CYLINDERmaterial = new THREE.MeshPhongMaterial( {color: 0x222222, emissive: 0x000033, specular: 0x111111, shininess: 100, metal: true, side: THREE.DoubleSide} );
+var CYLINDERmaterial = new THREE.MeshPhongMaterial( {color: 0x111111, emissive: 0x111111, specular: 0x111111, shininess: 100, metal: true, side: THREE.DoubleSide} );
 
 var CYLINDERradiusTop = 260; //radio de la parte superios del cilindro
 var CYLINDERradiusBottom = 260;	//radio de la parte inferior del cilindro
@@ -250,7 +274,12 @@ grupoTodo.add( donut );
 
 for(i=0;i<20; i++){
 for(j=0;j<20; j++){
-var CUBEmaterial = new THREE.MeshPhongMaterial( {color: 0xFFF984, emissive: 0x000033, specular: 0x111111, shininess: 100, metal: true, side: THREE.DoubleSide} );
+
+var TexturePatata = THREE.ImageUtils.loadTexture( "images/patatas.jpg" );
+var material = new THREE.MeshPhongMaterial( { map: TexturePatata,color: 0x888888, emissive: 0x888888, specular: 0x111111, shininess: 100, metal: true, transparent: true, opacity: 1, side: THREE.DoubleSide } );
+
+
+// var CUBEmaterial = new THREE.MeshPhongMaterial( {color: 0xFFF984, emissive: 0x000033, specular: 0x111111, shininess: 100, metal: true, side: THREE.DoubleSide} );
 var xAxis = 100;//dimensiones x
 var yAxis = 10;//dimensiones y
 var zAxis = 10;//dimensiones z
@@ -269,7 +298,7 @@ movex = positivo_negativoj* (10*j %130);
 movey =positivo_negativoi* (10*i % 130);
 move = Math.random()*3 % 4;
 var cubegeometry = new THREE.BoxGeometry( xAxis, yAxis, zAxis );
-var cube = new THREE.Mesh( cubegeometry, CUBEmaterial );
+var cube = new THREE.Mesh( cubegeometry, material );
     cube.castShadow = true; //emitir sombras
     cube.receiveShadow = true; //recibir sombras
     cube.position.set(movex,380,movey); //position del objeto(x,y,z)
